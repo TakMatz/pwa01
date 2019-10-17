@@ -2,9 +2,9 @@
   var installPrompt = null;
   var $button = $('button.a2hs');
 
-  window.addEventListener('offline', function () {
-    alert('ネットワークがオフラインになりました。');
-  });
+  // window.addEventListener('offline', function () {
+  //   alert('ネットワークがオフラインになりました。');
+  // });
 
   window.addEventListener('beforeinstallprompt', function (e) {
     e.preventDefault(); // ミニインフォバーを非表示にする
