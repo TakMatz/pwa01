@@ -1,7 +1,8 @@
 module.exports = {
   "globDirectory": "dist/https/",
   "globPatterns": [
-    "**/*.html"
+    "**/*.html",
+    "**/icon-*.png",
   ],
   "swDest": "dist/https/sw.js"
 };
