@@ -17,26 +17,29 @@
   </script>
 </head>
 <body>
-  コンテンツ2<br>
-  コンテンツ2<br>
-  コンテンツ2<br>
-  コンテンツ2<br>
+  コンテンツ3<br>
+  コンテンツ3<br>
+  コンテンツ3<br>
+  コンテンツ3<br>
 
-  <button type="button" class="a2hs">ホーム画面へ追加する</button>
+  <button type="button" class="a2hs" style="visibility: hidden;">ホーム画面へ追加する</button>
 
   <script>
     (function () {
       var installPrompt = null;
+      var button = document.querySelector('button.a2hs');
 
       window.addEventListener('offline', function () {
         alert('ネットワークがオフラインになりました。');
       });
 
       window.addEventListener('beforeinstallprompt', function (e) {
+        e.preventDefault(); // ミニインフォバーを非表示にする
+        button.style.visibility = 'visible';
         installPrompt = e;
       });
 
-      document.querySelector('button.a2hs').addEventListener('click', function (e) {
+      button.addEventListener('click', function (e) {
         e.preventDefault();
 
         installPrompt.prompt();
@@ -44,9 +47,10 @@
         installPrompt
           .userChoice
           .then(function (choice) {
-            // resolve
-            console.log(choice);
-            installPrompt = null;
+            if (choiceResult.outcome === 'accepted') {
+              button.style.visibility = 'hidden';
+              installPrompt = null;
+            }
           });
 
         return false;
