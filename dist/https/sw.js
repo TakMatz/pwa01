@@ -32,8 +32,16 @@ self.__precacheManifest = [
   {
     "url": "common/images/icons/icon-512x512.png",
     "revision": "144ee39846a274c100a63a9d523ef96b"
+  },
+  {
+    "url": "common/js/common.js",
+    "revision": "9868981f28f6f2fd77e9fab84796ebc3"
+  },
+  {
+    "url": "common/js/jquery-3.4.1.min.js",
+    "revision": "220afd743d9e9643852e31a135a9f3ae"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute("/", new workbox.strategies.NetworkFirst({ "cacheName":"site-top", plugins: [new workbox.expiration.Plugin({ maxAgeSeconds: 86400, purgeOnQuotaError: false })] }), 'GET');
+workbox.routing.registerRoute("/index.html", new workbox.strategies.CacheFirst({ "cacheName":"site-top", plugins: [new workbox.expiration.Plugin({ maxAgeSeconds: 60, purgeOnQuotaError: false })] }), 'GET');

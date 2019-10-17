@@ -15,6 +15,8 @@
       });
     }
   </script>
+  <script src="common/js/jquery-3.4.1.min.js"></script>
+  <script src="common/js/common.js" defer></script>
 </head>
 <body>
   コンテンツ3<br>
@@ -22,41 +24,6 @@
   コンテンツ3<br>
   コンテンツ3<br>
 
-  <button type="button" class="a2hs" style="visibility: hidden;">ホーム画面へ追加する</button>
-
-  <script>
-    (function () {
-      var installPrompt = null;
-      var button = document.querySelector('button.a2hs');
-
-      window.addEventListener('offline', function () {
-        alert('ネットワークがオフラインになりました。');
-      });
-
-      window.addEventListener('beforeinstallprompt', function (e) {
-        e.preventDefault(); // ミニインフォバーを非表示にする
-        button.style.visibility = 'visible';
-        installPrompt = e;
-      });
-
-      button.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        installPrompt.prompt();
-
-        installPrompt
-          .userChoice
-          .then(function (choice) {
-            if (choiceResult.outcome === 'accepted') {
-              button.style.display = 'none';
-              installPrompt = null;
-            }
-          });
-
-        return false;
-      });
-    })();
-  </script>
-
+  <button type="button" class="a2hs" style="display: none;">ホーム画面へ追加する</button>
 </body>
 </html>
