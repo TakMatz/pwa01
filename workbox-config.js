@@ -5,7 +5,7 @@ module.exports = {
   ],
   "swDest": "dist/https/sw.js",
   runtimeCaching: [{
-    urlPattern: "index.html",
+    urlPattern: "/",
     handler: 'NetworkFirst',
     options: {
       cacheName: 'site-top',

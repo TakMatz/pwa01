@@ -36,4 +36,4 @@ self.__precacheManifest = [
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute("index.html", new workbox.strategies.NetworkFirst({ "cacheName":"site-top", plugins: [new workbox.expiration.Plugin({ maxAgeSeconds: 86400, purgeOnQuotaError: false })] }), 'GET');
+workbox.routing.registerRoute("/", new workbox.strategies.NetworkFirst({ "cacheName":"site-top", plugins: [new workbox.expiration.Plugin({ maxAgeSeconds: 86400, purgeOnQuotaError: false })] }), 'GET');
