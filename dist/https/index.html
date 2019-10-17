@@ -48,7 +48,7 @@
           .userChoice
           .then(function (choice) {
             if (choiceResult.outcome === 'accepted') {
-              button.style.visibility = 'hidden';
+              button.style.display = 'none';
               installPrompt = null;
             }
           });
