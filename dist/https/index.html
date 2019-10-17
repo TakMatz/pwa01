@@ -14,6 +14,10 @@
         navigator.serviceWorker.register('/sw.js');
       });
     }
+
+    window.addEventListener('offline', function () {
+      alert('ネットワークがオフラインになりました。');
+    });
   </script>
 </head>
 <body>

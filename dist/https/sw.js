@@ -26,10 +26,6 @@ self.addEventListener('message', (event) => {
  */
 self.__precacheManifest = [
   {
-    "url": "index.html",
-    "revision": "e23225e24d36fb59fc5d7c0217b93159"
-  },
-  {
     "url": "common/images/icons/icon-192x192.png",
     "revision": "9d0cceac9f5ae597915fadcb551c42ae"
   },
@@ -39,3 +35,5 @@ self.__precacheManifest = [
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
+workbox.routing.registerRoute("index.html", new workbox.strategies.NetworkFirst({ "cacheName":"site-top", plugins: [new workbox.expiration.Plugin({ maxAgeSeconds: 86400, purgeOnQuotaError: false })] }), 'GET');
