@@ -14,10 +14,6 @@
         navigator.serviceWorker.register('/sw.js');
       });
     }
-
-    window.addEventListener('offline', function () {
-      alert('ネットワークがオフラインになりました。');
-    });
   </script>
 </head>
 <body>
@@ -26,10 +22,37 @@
   コンテンツ2<br>
   コンテンツ2<br>
 
+  <button type="button" class="a2hs">ホーム画面へ追加する</button>
+
   <script>
-    if (!navigator.onLine) {
-      document.write('ネットワークがオフラインです。');
-    }
+    (function () {
+      var installPrompt = null;
+
+      window.addEventListener('offline', function () {
+        alert('ネットワークがオフラインになりました。');
+      });
+
+      window.addEventListener('beforeinstallprompt', function (e) {
+        installPrompt = e;
+      });
+
+      document.querySelector('button.a2hs').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        installPrompt.prompt();
+
+        installPrompt
+          .userChoice
+          .then(function (choice) {
+            // resolve
+            console.log(choice);
+            installPrompt = null;
+          });
+
+        return false;
+      });
+    })();
   </script>
+
 </body>
 </html>
