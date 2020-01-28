@@ -3,7 +3,7 @@
 	"lang" : "Japanese",
 	"name" : "PWA01",
 	"scope" : "/",
-	"display" : "standalone",
+	"display" : "fullscreen",
 	"start_url" : "https://gallant-cori-cd508b.netlify.com/",
 	"short_name" : "PWA01",
 	"theme_color" : "transparent",
